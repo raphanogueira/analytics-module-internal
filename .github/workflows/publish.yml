@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Install Backstage CLI
+        run: yarn global add @backstage/cli
+
       - name: Set NODE_ENV
         run: echo "NODE_ENV=development" >> $GITHUB_ENV
         
