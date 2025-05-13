@@ -40,7 +40,9 @@ jobs:
         run: yarn tsc && yarn build
 
       - name: Clean Git working directory
-        run: git clean -fdX
+        run: |
+          git reset --hard HEAD
+          git clean -fdX
 
       - name: Configure Git for CI
         run: |
