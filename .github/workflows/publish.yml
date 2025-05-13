@@ -34,10 +34,7 @@ jobs:
         run: yarn cache clean
 
       - name: Install dependencies
-        run: yarn install
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Set NODE_ENV
         run: echo "NODE_ENV=production" >> $GITHUB_ENV
