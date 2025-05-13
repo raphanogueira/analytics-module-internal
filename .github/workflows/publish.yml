@@ -33,9 +33,6 @@ jobs:
       - name: Clean Yarn Cache
         run: yarn cache clean
 
-      - name: Yarn tsc
-        run: yarn tsc
-
       - name: Install dependencies
         run: yarn install
 
@@ -44,6 +41,9 @@ jobs:
 
       - name: Set NODE_ENV
         run: echo "NODE_ENV=development" >> $GITHUB_ENV
+        
+      - name: Build TypeScript
+        run: yarn tsc && yarn build
 
       - name: Clean Git working directory
         run: |
