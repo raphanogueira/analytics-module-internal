@@ -1,8 +1,7 @@
 {
-  "name": "@rnogueira/analytics-module-internal",
+  "name": "@raphanogueira/analytics-module-internal",
   "version": "1.0.0",
   "license": "Apache-2.0",
-  "private": true,
   "main": "src/index.ts",
   "types": "src/index.ts",
   "publishConfig": {
@@ -11,7 +10,11 @@
     "types": "dist/index.d.ts"
   },
   "backstage": {
-    "role": "frontend-plugin"
+    "role": "frontend-plugin",
+    "pluginId": "analytics-module-internal",
+    "pluginPackages": [
+      "@raphanogueira/analytics-module-internal"
+    ]
   },
   "sideEffects": false,
   "scripts": {
