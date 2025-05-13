@@ -49,10 +49,10 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Bump minor version and tag
-        run: |
-          npm version minor -m "chore(release): %s"
-          git push origin main --follow-tags
+      # - name: Bump minor version and tag
+      #   run: |
+      #     npm version minor -m "chore(release): %s"
+      #     git push origin main --follow-tags
 
       - name: Run prepack
         run: yarn prepack
