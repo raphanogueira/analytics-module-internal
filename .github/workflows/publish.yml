@@ -39,9 +39,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install Backstage CLI
-        run: yarn global add @backstage/cli
-
       - name: Set NODE_ENV
         run: echo "NODE_ENV=development" >> $GITHUB_ENV
         
@@ -63,7 +60,13 @@ jobs:
           npm version minor -m "chore(release): %s"
           git push origin main --follow-tags
 
+      - name: Backstage package prepackage
+        run: yarn dlx @backstage-cli package prepack
+
+      - name: Backstage package postpack
+        run: yarn dlx @backstage-cli package postpack
+
       - name: Publish to npm
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
