@@ -36,12 +36,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build dependencies
-        run: |
-          yarn msw build
-          yarn esbuild build
-          yarn @swc/core build
-
       - name: Set NODE_ENV
         run: echo "NODE_ENV=production" >> $GITHUB_ENV
         
@@ -63,7 +57,13 @@ jobs:
           npm version minor -m "chore(release): %s"
           git push origin main --follow-tags
 
-      - name: Publish to npm using Yarn
-        run: yarn npm publish --access public
+      - name: Run prepack
+        run: yarn prepack
+
+      - name: Publish to npm
+        run: npm publish --access public
         env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      - name: Run postpack
+        run: yarn postpack
