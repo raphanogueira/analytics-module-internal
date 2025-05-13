@@ -9,7 +9,7 @@ This plugin provides a fast and efficient way to collect internal Backstage metr
 ### Install the plugin
 
 ```bash
-yarn --cwd packages/app add @rnogueira/analytics-module-internal
+yarn --cwd packages/app add @raphanogueira/analytics-module-internal
 ```
 
 ### Open the `packages/app/src/apis.ts` file and import the required dependencies
@@ -20,7 +20,7 @@ import {
   configApiRef,
   identityApiRef,
 } from '@backstage/core-plugin-api';
-import { InternalMetric } from '@rnogueira/plugin-analytics-module-internal';
+import { InternalMetric } from '@raphanogueira/analytics-module-internal';
 ```
 
 ### Next, add the following code to `packages/app/src/apis.ts` to create the Internal Metric Analytics API
