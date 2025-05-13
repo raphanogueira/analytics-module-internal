@@ -34,7 +34,7 @@ jobs:
         run: yarn cache clean --all
 
       - name: Install dependencies
-        run: yarn install --immutable --check-files
+        run: yarn install --immutable
 
       - name: Build dependencies
         run: |
