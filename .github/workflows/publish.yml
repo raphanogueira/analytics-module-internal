@@ -22,7 +22,7 @@ jobs:
 
       - name: Use Yarn 4.4.1
         run: corepack prepare yarn@4.4.1 --activate
-        
+          
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,11 +30,17 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: yarn
 
+      - name: Clean Yarn Cache
+        run: yarn cache clean
+
       - name: Install dependencies
         run: yarn install
 
       - name: Build TypeScript
         run: yarn tsc && yarn build
+
+      - name: Clean Git working directory
+        run: git clean -fdX
 
       - name: Configure Git for CI
         run: |
