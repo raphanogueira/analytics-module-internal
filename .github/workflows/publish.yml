@@ -40,7 +40,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Set NODE_ENV
-        run: echo "NODE_ENV=development" >> $GITHUB_ENV
+        run: echo "NODE_ENV=production" >> $GITHUB_ENV
         
       - name: Build TypeScript
         run: yarn tsc && yarn build
