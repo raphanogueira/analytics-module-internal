@@ -60,12 +60,6 @@ jobs:
           npm version minor -m "chore(release): %s"
           git push origin main --follow-tags
 
-      - name: Backstage package prepackage
-        run: yarn dlx @backstage-cli package prepack
-
-      - name: Backstage package postpack
-        run: yarn dlx @backstage-cli package postpack
-
       - name: Publish to npm
         run: npm publish --access public
         env:
