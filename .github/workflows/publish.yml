@@ -39,10 +39,10 @@ jobs:
       - name: Build TypeScript
         run: yarn tsc && yarn build
 
-      - name: Clean Git working directory
-        run: |
-          git reset --hard HEAD
-          git clean -fdX
+      # - name: Clean Git working directory
+      #   run: |
+      #     git reset --hard HEAD
+      #     git clean -fdX
 
       - name: Configure Git for CI
         run: |
