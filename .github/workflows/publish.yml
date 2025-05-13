@@ -31,10 +31,16 @@ jobs:
           cache: yarn
 
       - name: Clean Yarn Cache
-        run: yarn cache clean
+        run: yarn cache clean --all
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --immutable --check-files
+
+      - name: Build dependencies
+        run: |
+          yarn msw build
+          yarn esbuild build
+          yarn @swc/core build
 
       - name: Set NODE_ENV
         run: echo "NODE_ENV=production" >> $GITHUB_ENV
